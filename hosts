@@ -7,6 +7,10 @@ ansible_port=22
 f5
 
 [f5]
-lb1 ansible_host=1.1.1.1 ansible_user=admin private_ip=192.168.1.1 ansible_ssh_pass=admin
+lb1 ansible_host=3.23.127.200 ansible_user=admin private_ip=172.31.47.20 ansible_ssh_pass=Mys1dlabspw!
+
+[webservers]
+host1 ansible_host=3.21.37.42 ansible_user=centos private_ip=172.31.19.55
+host2 ansible_host=3.128.32.131 ansible_user=centos private_ip=172.31.31.64
 
 [f5:vars]
