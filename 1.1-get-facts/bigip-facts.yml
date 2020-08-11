@@ -6,7 +6,7 @@
 
   tasks:
     - name: COLLECT BIG-IP FACTS
-      bigip_device_facts:
+      bigip_device_info:
         gather_subset:
           - system-info
         provider:
