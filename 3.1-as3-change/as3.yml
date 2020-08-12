@@ -3,8 +3,10 @@
   hosts: lb
   connection: local
   gather_facts: false
+
   vars:
     pool_members: "{{ groups['webservers'] }}"
+    
   tasks:
     - name: CREATE AS3 JSON BODY
       set_fact:
