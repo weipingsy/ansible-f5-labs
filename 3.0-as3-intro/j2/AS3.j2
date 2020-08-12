@@ -28,8 +28,10 @@
                          {
                              "servicePort": 80,
                              "serverAddresses": [
-                                 "192.0.1.10",
-                                 "192.0.1.11"
+                                 {% set comma = joiner(",") %}
+                                 {% for mem in pool_members %}
+                                     {{comma()}} "{{  hostvars[mem]['ansible_host']  }}"
+                                 {% endfor %}
                              ]
                          }
                      ]
