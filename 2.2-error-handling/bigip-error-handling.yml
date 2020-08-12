@@ -71,7 +71,7 @@
             provider: "{{provider}}"
             name: "{{hostvars[item].inventory_hostname}}"
             state: absent
-          loop: "{{ groups['web'] }}"
+          loop: "{{ groups['webservers'] }}"
       always:
         - name: SAVE RUNNING CONFIGURATION
           bigip_config:
