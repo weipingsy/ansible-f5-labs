@@ -5,7 +5,6 @@
   gather_facts: false
 
   tasks:
-
   - name: PUSH AS3
     uri:
       url: "https://{{ ansible_host }}:8443/mgmt/shared/appsvcs/declare/WorkshopExample"
