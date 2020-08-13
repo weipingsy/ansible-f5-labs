@@ -10,7 +10,7 @@ f5
 lb1 ansible_host=3.14.10.45 ansible_user=admin private_ip=172.31.47.20 ansible_ssh_pass=Mys1dlabspw!
 
 [webservers]
-host1 ansible_host=3.15.45.178 ansible_user=centos private_ip=172.31.19.21
+host1 ansible_host=3.136.84.180 ansible_user=centos private_ip=172.31.19.21
 host2 ansible_host=3.136.11.17 ansible_user=centos private_ip=172.31.20.204
 
 [f5:vars]
