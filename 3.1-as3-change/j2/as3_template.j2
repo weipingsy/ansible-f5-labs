@@ -1,12 +1,12 @@
 "web_app": {
     "class": "Application",
     "service": {
-        "class": "Service_HTTPS",
+        "class": "Service_HTTP",
         "virtualAddresses": [
             "{{private_ip}}"
         ],
         "pool": "app_pool",
-        "serverTLS": "webtls"
+
     },
     "app_pool": {
         "class": "Pool",
