@@ -1,18 +1,21 @@
 ---
 - name: setup webservers
   hosts: webservers
-
+  
+  pre_tasks:
+     - raw: sudo yum install python3
+     
   tasks:
-  - name: install apache
-    yum:
-      name: httpd
-      state: present
+    - name: install apache
+      yum:
+        name: httpd
+        state: present
 
-  - name: start httpd
-    service:
-      name: httpd
-      state: started
+    - name: start httpd
+      service:
+        name: httpd
+        state: started
 
-  - name: copy index.html
-    template:
-      src: index.j2
+    - name: copy index.html
+      template:
+        src: index.j2
