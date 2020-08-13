@@ -4,13 +4,23 @@
   gather_facts: false
   connection: local
   
+  vars_prompt:
+    - name: "username"
+      prompt: "Enter Username:"
+      private: no
+      default: "admin"
+    - name: "lb_password"
+      prompt: "Enter User Password:"
+      private: yes
+      default: "Mys1dlabspw!"
+
   tasks:
   - name: Setup provider
     set_fact:
       provider:
         server: "{{ private_ip }}"
-        user: "{{ ansible_user }}"
-        password: "{{ ansible_ssh_pass }}"
+        user: "{{ username }}"
+        password: "{{ lb_password }}"
         server_port: "8443"
         validate_certs: "no"
 

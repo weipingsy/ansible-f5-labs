@@ -6,11 +6,11 @@
 
   vars_prompt:
     - name: "username"
-      prompt: "Enter Username: "
+      prompt: "Enter Username:"
       private: no
       default: "admin"
     - name: "lb_password"
-      prompt: "Enter User Password: "
+      prompt: "Enter User Password:"
       private: yes
       default: "Mys1dlabspw!"
 

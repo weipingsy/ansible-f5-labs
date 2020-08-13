@@ -9,15 +9,15 @@
 
   vars_prompt:
     - name: "username"
-      prompt: "Enter Username: "
+      prompt: "Enter Username:"
       private: no
       default: "admin"
     - name: "lb_password"
-      prompt: "Enter User Password: "
+      prompt: "Enter User Password:"
       private: yes
       default: "Mys1dlabspw!"
     - name: "tenant_name"
-      prompt: "Enter the Tenant name: "
+      prompt: "Enter the Tenant name:"
       private: no
       default: "WorkshopExample"
     
