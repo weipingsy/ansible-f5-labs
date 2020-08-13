@@ -18,7 +18,10 @@
             "{{ private_ip }}"
           ],
           "pool": "web_pool",
-          "serverTLS": "webtls"
+          "serverTLS": "webtls",
+          "persistenceMethods": [
+            "none"
+          ],
         },
         "web_pool": {
           "class": "Pool",
