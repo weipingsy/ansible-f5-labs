@@ -1,19 +1,33 @@
 ---
-- name: LINKLIGHT AS3
+- name: AS3
   hosts: lb
   connection: local
   gather_facts: false
 
+  vars_prompt:
+    - name: "username"
+      prompt: "Enter Username: "
+      private: no
+      default: "admin"
+    - name: "lb_password"
+      prompt: "Enter User Password: "
+      private: yes
+      default: "Mys1dlabspw!"
+    - name: "tenant_name"
+      prompt: "Enter the Tenant name: "
+      private: no
+      default: "WorkshopExample"
+
   tasks:
-  - name: PUSH AS3
+  - name: Remove Tenant AS3
     uri:
-      url: "https://{{ ansible_host }}:8443/mgmt/shared/appsvcs/declare/WorkshopExample"
+      url: "https://{{ ansible_host }}:8443/mgmt/shared/appsvcs/declare/{{ tenant_name }}"
       method: DELETE
       status_code: 200
       timeout: 300
       body_format: json
       force_basic_auth: true
-      user: "{{ ansible_user }}"
-      password: "{{ ansible_ssh_pass }}"
+      user: "{{ username }}"
+      password: "{{ lb_password }}"
       validate_certs: false
     delegate_to: localhost

@@ -1,5 +1,5 @@
 ---
-- name: LINKLIGHT AS3
+- name: AS3
   hosts: lb
   connection: local
   gather_facts: false
@@ -7,21 +7,31 @@
   vars:
     pool_members: "{{ groups['webservers'] }}"
 
+  vars_prompt:
+    - name: "username"
+      prompt: "Enter Username: "
+      private: no
+      default: "admin"
+    - name: "lb_password"
+      prompt: "Enter User Password: "
+      private: yes
+      default: "Mys1dlabspw!"
+    - name: "tenant_name"
+      prompt: "Enter the Tenant name: "
+      private: no
+      default: "WorkshopExample"
+    
   tasks:
-    - name: CREATE AS3 JSON BODY
-      set_fact:
-        as3_app_body: "{{ lookup('template', 'j2/as3_template.j2', split_lines=False) }}"
-
-    - name: PUSH AS3
+    - name: Push AS3
       uri:
         url: "https://{{ ansible_host }}:8443/mgmt/shared/appsvcs/declare"
         method: POST
-        body: "{{ lookup('template','j2/tenant_base.j2', split_lines=False) }}"
+        body: "{{ lookup('template','j2/as3_template.j2', split_lines=False) }}"
         status_code: 200
         timeout: 300
         body_format: json
         force_basic_auth: true
-        user: "{{ ansible_user }}"
-        password: "{{ ansible_ssh_pass }}"
+        user: "{{ username }}"
+        password: "{{ lb_password }}"
         validate_certs: false
       delegate_to: localhost
