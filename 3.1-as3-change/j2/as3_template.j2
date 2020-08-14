@@ -17,6 +17,9 @@
           "virtualAddresses": [
             "{{ private_ip }}"
           ],
+          "profileMultiplex": {
+                    "bigip": "/Common/oneconnect"
+                },
           "pool": "web_pool",
           "persistenceMethods": [],
           "serverTLS": "webtls",

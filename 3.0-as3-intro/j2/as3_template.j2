@@ -7,7 +7,7 @@
     "schemaVersion": "3.0.0",
     "id": "123abc",
     "label": "Sample 2",
-    "remark": "HTTPS with predictive-node pool",
+    "remark": "HTTPS with round robin pool",
     "{{ tenant_name }}": {
       "class": "Tenant",
       "A1": {
@@ -17,6 +17,9 @@
           "virtualAddresses": [
             "{{ private_ip }}"
           ],
+          "profileMultiplex": {
+                    "bigip": "/Common/oneconnect"
+                },
           "pool": "web_pool",
           "persistenceMethods": [],
           "serverTLS": "webtls"
