@@ -17,6 +17,7 @@
       service:
         name: httpd
         state: started
+        enablled: true
 
     - name: copy index.html
       template:
