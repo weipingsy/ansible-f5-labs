@@ -13,6 +13,6 @@
         password: "{{ f5_password }}"
         server_port: 8443
         validate_certs: false
-      host: "{{ hostvars[item].ansible_host }}"
+      host: "{{ hostvars[item].private_ip }}"
       name: "{{ hostvars[item].inventory_hostname }}"
     loop: "{{ groups['webservers'] }}"
