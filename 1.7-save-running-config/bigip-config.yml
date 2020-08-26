@@ -9,8 +9,8 @@
     bigip_config:
       provider:
         server: "{{ private_ip }}"
-        user: "{{ ansible_user }}"
-        password: "{{ ansible_ssh_pass }}"
+        user: "{{ f5_username }}"
+        password: "{{ f5_password }}"
         server_port: 8443
         validate_certs: false
       save: true
