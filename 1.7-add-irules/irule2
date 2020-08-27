@@ -1,3 +1,8 @@
-when HTTP_REQUEST {
-       log local0. "Accessing iRule2"
-    }
+ if { [HTTP::uri] starts_with "/web1" } {
+    node 172.31.19.21 80
+  } elseif { [HTTP::uri] starts_with "/web2" } {
+    node 172.31.20.204 80
+  } else {
+    pool http_pool
+  }
+}
