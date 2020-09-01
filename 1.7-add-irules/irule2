@@ -1,7 +1,9 @@
-when HTTP_REQUEST {
-  if { [HTTP::uri] starts_with "/web1" } {
+when HTTP_REQUEST {  
+  if { [HTTP::uri] ends_with "web1" } {
+    HTTP::uri "/"
     node 172.31.19.21 80
-  } elseif { [HTTP::uri] starts_with "/web2" } {
+  } elseif { [HTTP::uri] ends_with "web2" } {
+    HTTP::uri "/"
     node 172.31.20.204 80
   } else {
     pool http_pool
