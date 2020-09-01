@@ -2,7 +2,7 @@
 f5
 
 [f5]
-lb1 ansible_host=3.14.10.45 private_ip=172.31.47.20
+<<siduserID>>.f5.mysidlabs.com private_ip=<<privateIP>>
 
 [webservers]
 Web1 private_ip=172.31.19.21
