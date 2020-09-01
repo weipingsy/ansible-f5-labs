@@ -8,7 +8,7 @@
   - name: ADD POOL MEMBERS
     bigip_pool_member:
       provider:
-        server: "{{ private_ip }}"
+        server: "{{ ansible_host }}"
         user: "{{ f5_username }}"
         password: "{{ f5_password }}"
         server_port: 8443

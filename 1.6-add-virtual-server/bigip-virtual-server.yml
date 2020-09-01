@@ -8,7 +8,7 @@
   - name: ADD VIRTUAL SERVER
     bigip_virtual_server:
       provider:
-        server: "{{ private_ip }}"
+        server: "{{ ansible_host }}"
         user: "{{ f5_username }}"
         password: "{{ f5_password }}"
         server_port: 8443
