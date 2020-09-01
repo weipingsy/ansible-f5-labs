@@ -1,4 +1,5 @@
-if { [HTTP::uri] starts_with "/web1" } {
+when HTTP_REQUEST {
+  if { [HTTP::uri] starts_with "/web1" } {
     node 172.31.19.21 80
   } elseif { [HTTP::uri] starts_with "/web2" } {
     node 172.31.20.204 80
