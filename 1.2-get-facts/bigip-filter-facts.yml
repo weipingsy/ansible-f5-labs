@@ -24,3 +24,4 @@
     - name: DISPLAY ONLY THE VERSION
       debug:
         var: device_facts['system_info']['product_version']
+...

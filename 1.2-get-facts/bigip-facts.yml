@@ -20,3 +20,4 @@
     - name: DISPLAY COMPLETE BIG-IP SYSTEM INFORMATION
       debug:
         var: device_facts
+...
