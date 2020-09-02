@@ -12,7 +12,7 @@
       prompt: "Enter the Tenant name:"
       private: no
       default: "WorkshopExample"
-    
+
   tasks:
     - name: Push AS3
       uri:
@@ -26,5 +26,4 @@
         user: "{{ f5_username }}"
         password: "{{ f5_password }}"
         validate_certs: false
-      delegate_to: localhost
 ...

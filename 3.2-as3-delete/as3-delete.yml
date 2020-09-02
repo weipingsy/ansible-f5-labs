@@ -22,5 +22,4 @@
       user: "{{ f5_username }}"
       password: "{{ f5_password }}"
       validate_certs: false
-    delegate_to: localhost
 ...
