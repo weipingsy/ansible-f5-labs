@@ -1,7 +1,0 @@
-[lb:children]
-f5
-
-[f5]
-lb1 ansible_host=1.1.1.1 ansible_user=admin private_ip=192.168.1.1 ansible_ssh_pass=admin
-
-[f5:vars]
