@@ -5,7 +5,7 @@
   gather_facts: false
 
   vars:
-    irules: ['irule1', 'irule2']
+    irules: ['1.7.1-irule1', '1.7.2-irule2']
 
   tasks:
     - name: ADD iRules
