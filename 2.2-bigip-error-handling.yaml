@@ -27,14 +27,14 @@
     - name: SETUP AND GRACEFUL ROLLBACK BIG-IP CONFIGURATION
       block:
         - name: CREATE NODES
-          f5networks.f5_modules.bigip_node:
+          bigip_node:
             provider: "{{ provider }}"
             host: "{{ hostvars[item].private_ip }}"
             name: "{{ hostvars[item].inventory_hostname }}"
           loop: "{{ groups['webservers'] }}"
 
         - name: CREATE POOL
-          f5networks.f5_modules.bigip_pool:
+          bigip_pool:
             provider: "{{ provider }}"
             name: "http_pool"
             lb_method: "round-robin"
@@ -42,7 +42,7 @@
             monitor_type: "and_list"
 
         - name: ADD POOL MEMBERS
-          f5networks.f5_modules.bigip_pool_member:
+          bigip_pool_member:
             provider: "{{ provider }}"
             state: "present"
             name: "{{ hostvars[item].inventory_hostname }}"
@@ -52,7 +52,7 @@
           loop: "{{ groups['webservers'] }}"
 
         - name: ADD VIRTUAL SERVER
-          f5networks.f5_modules.bigip_virtual_server:
+          bigip_virtual_server:
             provider: "{{ provider }}"
             name: "vip"
             destination: "{{ private_ip }}"
@@ -64,19 +64,19 @@
 
       rescue:
         - name: DELETE VIRTUAL SERVER
-          f5networks.f5_modules.bigip_virtual_server:
+          bigip_virtual_server:
             provider: "{{ provider }}"
             name: "vip"
             state: absent
 
         - name: DELETE POOL
-          f5networks.f5_modules.bigip_pool:
+          bigip_pool:
             provider: "{{ provider }}"
             name: "http_pool"
             state: absent
 
         - name: DELETE NODES
-          f5networks.f5_modules.bigip_node:
+          bigip_node:
             provider: "{{ provider }}"
             name: "{{ hostvars[item].inventory_hostname }}"
             state: absent
@@ -84,7 +84,7 @@
           
       always:
         - name: SAVE RUNNING CONFIGURATION
-          f5networks.f5_modules.bigip_config:
+          bigip_config:
             provider: "{{ provider }}"
             save: true
 ...
