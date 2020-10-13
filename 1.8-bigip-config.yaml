@@ -6,7 +6,7 @@
 
   tasks:
   - name: SAVE RUNNING CONFIG ON BIG-IP
-    f5networks.f5_modules.bigip_config:
+    bigip_config:
       provider:
         server: "{{ ansible_host }}"
         user: "{{ f5_username }}"

@@ -6,7 +6,7 @@
 
   tasks:
   - name: CREATE POOL
-    f5networks.f5_modules.bigip_pool:
+    bigip_pool:
       provider:
         server: "{{ ansible_host }}"
         user: "{{ f5_username }}"

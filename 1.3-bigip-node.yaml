@@ -6,7 +6,7 @@
 
   tasks:
   - name: CREATE NODES
-    f5networks.f5_modules.bigip_node:
+    bigip_node:
       provider:
         server: "{{ ansible_host }}"
         user: "{{ f5_username }}"

@@ -25,19 +25,19 @@
           validate_certs: "no"
 
     - name: DELETE VIRTUAL SERVER
-      f5networks.f5_modules.bigip_virtual_server:
+      bigip_virtual_server:
         provider: "{{ provider }}"
         name: "vip"
         state: absent
 
     - name: DELETE POOL
-      f5networks.f5_modules.bigip_pool:
+      bigip_pool:
         provider: "{{ provider }}"
         name: "http_pool"
         state: absent
 
     - name: DELETE NODES
-      f5networks.f5_modules.bigip_node:
+      bigip_node:
         provider: "{{ provider }}"
         name: "{{ hostvars[item].inventory_hostname }}"
         state: absent

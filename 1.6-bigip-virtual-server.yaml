@@ -6,7 +6,7 @@
 
   tasks:
   - name: ADD VIRTUAL SERVER
-    f5networks.f5_modules.bigip_virtual_server:
+    bigip_virtual_server:
       provider:
         server: "{{ ansible_host }}"
         user: "{{ f5_username }}"

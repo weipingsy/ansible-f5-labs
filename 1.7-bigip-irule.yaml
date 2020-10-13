@@ -9,7 +9,7 @@
 
   tasks:
     - name: ADD iRules
-      f5networks.f5_modules.bigip_irule:
+      bigip_irule:
         provider:
           server: "{{ ansible_host }}"
           user: "{{ f5_username }}"
@@ -22,7 +22,7 @@
       with_items: "{{ irules }}"
 
     - name: ATTACH iRules TO VIRTUAL SERVER
-      f5networks.f5_modules.bigip_virtual_server:
+      bigip_virtual_server:
         provider:
           server: "{{ ansible_host }}"
           user: "{{ f5_username }}"
