@@ -2,7 +2,7 @@
 f5
 
 [f5]
-<<siduserID>>.f5.mysidlabs.com private_ip=<<privateIP>>
+siduser108.f5.mysidlabs.com private_ip=172.31.1.202
 
 [webservers]
 Web1 private_ip=172.31.46.238
